@@ -1,18 +1,17 @@
 import React from 'react';
-import './home.less';
 // import PropTypes from 'prop-types';
 
-class Home extends React.Component {
+class Trade extends React.Component {
     componentDidMount() {
 
     }
     render() {
         return (
             <div>
-                this is page/Home
+                this is page/trade
             </div>
         )
     }
 }
 
-export default Home;
+export default Trade;

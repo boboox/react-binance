@@ -2,7 +2,7 @@
 - webpack prd
 - webpack 优化
 - ✅ redux
-- router
+- ✅ router
 - add antd
 - rest api:https://github.com/binance-exchange/binance-official-api-docs/blob/master/rest-api.md
 - make ui

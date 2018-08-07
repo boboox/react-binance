@@ -5,14 +5,14 @@ import {
 } from 'react-redux';
 import store from './redux/store';
 import DevTools from './util/devTool'
-import Home from './pages/home/container';
+import App from './pages/app';
 import './index.less'
 
 ReactDOM.render(
     <Provider store={store}>
         <div>
-            <Home />
-            <DevTools />
+            <App />
+            {/* <DevTools /> */}
         </div>
     </Provider>,
     document.getElementById('root')

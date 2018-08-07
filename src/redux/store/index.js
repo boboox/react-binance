@@ -12,7 +12,7 @@ import thunk from 'redux-thunk';
 
 const enhancer = compose(
     applyMiddleware(thunk),
-    DevTools.instrument(),
+    DevTools.instrument()
 )
 
 const store = createStore(rootReducer, initialState, enhancer);
