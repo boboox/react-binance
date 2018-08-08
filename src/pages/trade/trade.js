@@ -3,7 +3,7 @@ import React from 'react';
 
 class Trade extends React.Component {
     componentDidMount() {
-
+        console.log(this.props)
     }
     render() {
         return (

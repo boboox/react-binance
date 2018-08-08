@@ -17,7 +17,7 @@ ReactDOM.render(
         {/* <ConnectedRouter history={history}> */}
             <div>
                 <App />
-                <DevTools />
+                {/* <DevTools /> */}
             </div>
         {/* </ConnectedRouter> */}
     </Provider>,

@@ -10,17 +10,17 @@ import {
 } from '../../redux/actions/trade';
 
 
-console.log(changeLoadingStatus);
+// console.log(changeLoadingStatus);
 const mapStateToProps = (state) => {
     return {
         loadingStatus: state.app.loading,
-        // marketPairList: [{}]
+        marketPairList: state.trade.marketPairList
     }
 }
 
 const mapDispatchToProps = {
     loading: (status) => changeLoadingStatus(status),
-    // onMarketPairDataUpdated
+    onMarketPairDataUpdated
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

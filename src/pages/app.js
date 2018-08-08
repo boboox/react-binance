@@ -4,8 +4,8 @@ import {
 } from 'antd';
 import './app.less';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
-import Home from './home/home';
-import Trade from './trade/trade';
+import Home from './home/container';
+import Trade from './trade/container';
 class App extends React.Component {
     componentDidMount() {
         // this.props.loading(true);
