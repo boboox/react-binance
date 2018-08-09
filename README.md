@@ -1,28 +1,30 @@
 # react demo
 
+react@16 + redux + router + jest/enzyme
+
 ## run
 
-安装
+### 安装
 ```
 npm i
 ```
 
-运行
+### 运行
 ```
 npm run dev
 ```
 @@@@@目前没有写生成打包的配置@@@@@
+
+
+### devTool
 
 需要启用devTool的话,在src/index.js中拿掉注释即可
 ```javascript
  {/* <DevTools /> */}
 ```
 
-react@16 + redux + router + jest/enzyme
-
 ## bug
-- 目前还有内存泄露 高频刷新内存增长很快
-
+- 目前还有内存泄露 websocket高频刷新内存增长很快,可能数据走redux是不合适的?
 
 ## TODO
 - webpack prd
