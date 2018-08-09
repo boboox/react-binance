@@ -13,12 +13,15 @@ class App extends React.Component {
     render() {
         return (
             <div className='app-wrapper'>
-                <div className="app-header">Binance.co</div>
+                <div className="app-header">
+                    <p>Binance</p>
+                    <p>隐藏DevTool:CTRL+H</p>
+                </div>
                 <Layout className="main-container">
                     <Router>
                         <Switch>
                             <Route path="/home" component={Home} />
-                            <Route path="/trade" component={Trade} />
+                            <Route path="/trade/:symbol" component={Trade} />
                             <Redirect from="/" to="/home" />
                         </Switch>
                     </Router>

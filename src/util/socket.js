@@ -1,8 +1,6 @@
 const isDemo = false;
-const wsPool = {};
 const endPoint = isDemo ? 'wss://stream.binance.com:9443' : 'wss://stream2.binance.cloud'
 const path = 'stream'
-
 
 function createWebSocket(queryString) {
     const url = `${endPoint}/${path}?${queryString}`
@@ -10,19 +8,31 @@ function createWebSocket(queryString) {
     return ws;
 }
 
-function connection(streamQuery) {
-    let key = `streams=${streamQuery}`
-    let ws;
-    if (wsPool[key]) {
-        ws = wsPool[key];
-    } else {
-        ws = createWebSocket(key);
-        wsPool[key] = ws;
+class BSocket {
+    constructor(streamName, cb) {
+        this.streamName = streamName;
+        this.onMessage = cb;
+        this.rawWebSocket = null;
     }
-    return ws;
+    open() {
+        return new Promise((resolve) => {
+            if (this.rawWebSocket && this.rawWebSocket.readyState === WebSocket.CONNECTING)
+                resolve();
+            this.rawWebSocket = createWebSocket(`streams=${this.streamName}`);
+            this.rawWebSocket.onmessage = this.onMessage;
+            this.rawWebSocket.onopen = resolve;
+        });
+    }
+    close() {
+        return new Promise((resolve) => {
+            if (!this.rawWebSocket)
+                resolve();
+            this.rawWebSocket.close();
+            this.rawWebSocket.onclose = resolve;
+            this.rawWebSocket = null;
+        });
+    }
 }
 
 
-export default {
-    connection
-}
+export default BSocket

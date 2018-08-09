@@ -3,15 +3,20 @@ import {
 } from 'react-redux'
 import Trade from './trade';
 import {
-    changeLoadingStatus
-} from '../../redux/actions/app';
+    orderBookLoaded,
+    aggTradeUpdated,
+    aggTradesListLoaded
+} from '@actions/trade';
 const mapStateToProps = (state) => {
     return {
-        // loadingStatus: state.app.loading
+        orderBookListLocal: state.orderbook.orderBookListLocal,
+        aggTradeList: state.trade.aggTradeList
     }
 }
 const mapDispatchToProps = {
-    // loading: (status) => changeLoadingStatus(status)
+    orderBookLoaded,
+    aggTradeUpdated,
+    aggTradesListLoaded
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Trade);

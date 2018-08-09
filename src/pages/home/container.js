@@ -6,7 +6,7 @@ import {
     changeLoadingStatus
 } from '../../redux/actions/app';
 import {
-    onMarketPairDataUpdated
+    marketPairDataUpdated
 } from '../../redux/actions/trade';
 
 
@@ -20,7 +20,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
     loading: (status) => changeLoadingStatus(status),
-    onMarketPairDataUpdated
+    marketPairDataUpdated
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

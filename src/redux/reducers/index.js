@@ -10,17 +10,20 @@ import appInitialState from './app';
 import * as trade from './trade'
 import tradeInitialState from './trade';
 
-
+import * as orderbook from './orderbook'
+import orderbookInitialState from './orderbook';
 
 const rootReducer = combineReducers({
     router: routerReducer,
     ...app,
-    ...trade
+    ...trade,
+    ...orderbook
 })
 
 
 export const initialState = {
     app: appInitialState,
-    trade: tradeInitialState
+    trade: tradeInitialState,
+    orderbook: orderbookInitialState
 }
 export default rootReducer

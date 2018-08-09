@@ -3,6 +3,7 @@ const opn = require('opn')
 const path = require('path')
 const express = require('express')
 const webpack = require('webpack')
+const proxyMiddleware = require('http-proxy-middleware')
 const webpackConfig = require('./webpack.config')
 
 const port = 8080;
@@ -19,6 +20,24 @@ const devMiddleware = require('webpack-dev-middleware')(compiler, {
 const hotMiddleware = require('webpack-hot-middleware')(compiler, {
     log: false,
     heartbeat: 2000
+})
+
+const proxyTable = {
+    '/api': {
+        target: 'https://www.binance.co',
+        secure: false,
+        changeOrigin: true
+    }
+}
+
+Object.keys(proxyTable).forEach(function (context) {
+    const options = proxyTable[context]
+    if (typeof options === 'string') {
+        options = {
+            target: options
+        }
+    }
+    app.use(proxyMiddleware(options.filter || context, options))
 })
 
 app.use(hotMiddleware)

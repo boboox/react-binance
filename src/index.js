@@ -15,10 +15,10 @@ const history = createHistory()
 ReactDOM.render(
     <Provider store={store}>
         {/* <ConnectedRouter history={history}> */}
-            <div>
-                <App />
-                {/* <DevTools /> */}
-            </div>
+        <div>
+            <App />
+            {/* <DevTools /> */}
+        </div>
         {/* </ConnectedRouter> */}
     </Provider>,
     document.getElementById('root')
