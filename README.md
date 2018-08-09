@@ -26,6 +26,14 @@ npm run dev
 ## bug
 - 目前还有内存泄露 websocket高频刷新内存增长很快,可能数据走redux是不合适的?
 
+## 调用接口描述
+- home
+    - wss://stream2.binance.cloud/stream?streams=!miniTicker@arr@3000ms
+- trade
+    - https://www.binance.co/api/v1/depth?limit=100&symbol=ETHBTC
+    - https://www.binance.co/api/v1/aggTrades?limit=80&symbol=ETHBTC
+    - wss://stream2.binance.cloud/stream?streams=ethbtc@aggTrade
+
 ## TODO
 - webpack prd
 - webpack 优化
