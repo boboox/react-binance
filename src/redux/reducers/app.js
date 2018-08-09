@@ -10,7 +10,6 @@ const initialState = {
 }
 export const app = handleActions({
     LOADING_STATUS(state, action) {
-        console.log(state, action);
         return {
             loading: action.loading
         }

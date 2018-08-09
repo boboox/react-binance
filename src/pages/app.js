@@ -6,6 +6,7 @@ import './app.less';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import Home from './home/container';
 import Trade from './trade/container';
+import AppHeader from '@comp/app-header';
 class App extends React.Component {
     componentDidMount() {
         // this.props.loading(true);
@@ -13,10 +14,7 @@ class App extends React.Component {
     render() {
         return (
             <div className='app-wrapper'>
-                <div className="app-header">
-                    <p>Binance</p>
-                    <p>隐藏DevTool:CTRL+H</p>
-                </div>
+                <AppHeader description={'here is description'} />
                 <Layout className="main-container">
                     <Router>
                         <Switch>

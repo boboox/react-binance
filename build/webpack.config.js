@@ -22,7 +22,8 @@ module.exports = {
             '@': resolve('src'),
             '@actions': resolve('src/redux/actions'),
             '@reducers': resolve('src/redux/reducers'),
-            '@util': resolve('src/util')
+            '@util': resolve('src/util'),
+            '@comp': resolve('src/components')
         }
     },
     module: {
