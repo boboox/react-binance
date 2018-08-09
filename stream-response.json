@@ -1,17 +1,17 @@
-{
-    "stream": "!miniTicker@arr@3000ms",
-    "data": [{
-        "e": "24hrMiniTicker",// Event type
-        "E": 1533691768668,// Event time
-        "s": "ETHBTC", // Symbol
-        "c": "0.05722400",  // Current day's close price
-        "o": "0.05838100", // Open price
-        "h": "0.05865000",  // High price
-        "l": "0.05527400", // Low price
-        "v": "135247.89200000",  // Total traded base asset volume
-        "q": "7762.83853883" // Total traded quote asset volume
-    }]
-}
+// {
+//     "stream": "!miniTicker@arr@3000ms",
+//     "data": [{
+//         "e": "24hrMiniTicker",// Event type
+//         "E": 1533691768668,// Event time
+//         "s": "ETHBTC", // Symbol
+//         "c": "0.05722400",  // Current day's close price
+//         "o": "0.05838100", // Open price
+//         "h": "0.05865000",  // High price
+//         "l": "0.05527400", // Low price
+//         "v": "135247.89200000",  // Total traded base asset volume
+//         "q": "7762.83853883" // Total traded quote asset volume
+//     }]
+// }
 // "e": "24hrTicker",  // Event type
 // "E": 123456789,     // Event time
 // "s": "BNBBTC",      // Symbol

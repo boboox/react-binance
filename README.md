@@ -1,8 +1,30 @@
-# 已知问题
-- 目前还有内存泄露 高频刷新内存增长很快
-- 
+# react demo
 
-# TODO
+## run
+
+安装
+```
+npm i
+```
+
+运行
+```
+npm run dev
+```
+@@@@@目前没有写生成打包的配置@@@@@
+
+需要启用devTool的话,在src/index.js中拿掉注释即可
+```javascript
+ {/* <DevTools /> */}
+```
+
+react@16 + redux + router + jest/enzyme
+
+## bug
+- 目前还有内存泄露 高频刷新内存增长很快
+
+
+## TODO
 - webpack prd
 - webpack 优化
 - ✅ redux
@@ -12,13 +34,13 @@
     -  api:https://github.com/binance-exchange/binance-official-api-docs/blob/master/rest-api.md
 - ✅ websocket
     - https://github.com/binance-exchange/binance-official-api-docs/blob/master/web-socket-streams.md
-- unit test
+- ✅ unit test
 - ✅ aggTrade的update
 - depth的diff
 
 
 
-## 结构
+## Project Structure
 
 ```
 ├── README.md
@@ -30,7 +52,11 @@
 ├── package-lock.json
 ├── package.json
 ├── src
+│   ├── __tests__                           # test enzyme jest
+│   │   └── app-header.test.js              # test
 │   ├── api                                 # 预分装API,目前没封
+│   ├── components                          # 组件
+│   │   └── app-header.js
 │   ├── index.js
 │   ├── index.less
 │   ├── pages
