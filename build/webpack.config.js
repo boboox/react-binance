@@ -10,10 +10,10 @@ function resolve(dir) {
 module.exports = {
     entry: {
         app: ['./build/dev-client', path.resolve(__dirname, '../src/index.js')]
-    }, //指定入口文件，程序从这里开始编译,__dirname当前所在目录, ../表示上一级目录, ./同级目录
+    },
     output: {
-        path: path.resolve(__dirname, '../dist'), // 输出的路径
-        filename: '[name].js', // 打包后文件
+        path: path.resolve(__dirname, '../dist'),
+        filename: '[name].js',
         publicPath: '/'
     },
     resolve: {
@@ -39,7 +39,6 @@ module.exports = {
             }, {
                 test: /\.css$/,
                 use: [
-                    // "style" loader turns CSS into JS modules that inject <style> tags.
                     require.resolve('style-loader'),
                     {
                         // "css" loader resolves paths in CSS and adds assets as dependencies.
@@ -60,7 +59,7 @@ module.exports = {
                                         '>1%',
                                         'last 4 versions',
                                         'Firefox ESR',
-                                        'not ie < 9', // React doesn't support IE8 anyway
+                                        'not ie < 9',
                                     ],
                                     flexbox: 'no-2009',
                                 }),
@@ -77,7 +76,7 @@ module.exports = {
                     {
                         loader: require.resolve('postcss-loader'),
                         options: {
-                            ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
+                            ident: 'postcss',
                             plugins: () => [
                                 require('postcss-flexbugs-fixes'),
                                 autoprefixer({
@@ -85,7 +84,7 @@ module.exports = {
                                         '>1%',
                                         'last 4 versions',
                                         'Firefox ESR',
-                                        'not ie < 9', // React doesn't support IE8 anyway
+                                        'not ie < 9',
                                     ],
                                     flexbox: 'no-2009',
                                 }),
