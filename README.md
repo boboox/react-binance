@@ -45,8 +45,6 @@ npm run dev
 - ✅ websocket
     - https://github.com/binance-exchange/binance-official-api-docs/blob/master/web-socket-streams.md
 - ✅ unit test
-- ✅ aggTrade的update
-- depth的diff
 
 
 

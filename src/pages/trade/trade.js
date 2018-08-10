@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { Row, Col, Divider } from 'antd';
 import { Layout, Switch } from 'antd';
 const { Header, Content } = Layout;
+import Kline from '@comp/kline';
 import moment from 'moment';
 import './trade.less';
+
 import ajax from '@util/ajax';
 import BSocket from '@util/socket';
 import { splitMarketPair } from '@util/market';
@@ -21,13 +23,10 @@ class Trade extends React.Component {
     }
     componentDidMount() {
         let market = this.props.match.params.symbol;
-        ajax.get('/api/v1/depth', {
-            limit: 100,
-            symbol: market
-        }).then(data => {
-            this.props.orderBookLoaded(market, data);
-        });
-
+        this.loadDepth(market);
+        this.loadAggTrades(market);
+    }
+    loadAggTrades(market) {
         ajax.get('/api/v1/aggTrades', {
             limit: 80,
             symbol: market
@@ -39,8 +38,16 @@ class Trade extends React.Component {
                 this.props.aggTradeUpdated(market, aggTradeUpdated);
             });
             aggTradeWS.open().then(() => {
-                this.setState({ wsSwitch: 1 })
+                this.setState({ wsSwitch: 1 });
             });
+        });
+    }
+    loadDepth(market) {
+        ajax.get('/api/v1/depth', {
+            limit: 100,
+            symbol: market
+        }).then(data => {
+            this.props.orderBookLoaded(market, data);
         });
     }
     handleWebSocketSwitchChange(checked) {
@@ -69,6 +76,7 @@ class Trade extends React.Component {
                 <div className='switch-wrapper'>
                     数据流开关&nbsp;&nbsp;<Switch onChange={this.handleWebSocketSwitchChange.bind(this)} disabled={this.state.wsSwitch === -1} defaultChecked />
                 </div>
+                <Kline market={this.props.match.params.symbol} />
                 <Layout>
                     <Header><span className='leftmarket'>{leftM}</span><span className='rightmarket'> / {rightM}</span></Header>
                     <Content>
